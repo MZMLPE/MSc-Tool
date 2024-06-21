@@ -1,0 +1,16 @@
+Flask==2.2.2
+Flask-Login==0.6.2
+Flask-SQLAlchemy==2.5.1
+h5py==3.7.0
+imageio==2.21.1
+Jinja2==3.1.2
+keras==2.9.0
+Keras-Preprocessing==1.1.2
+numpy==1.23.1
+oauthlib==3.2.0
+opencv-python==4.6.0.66
+Pillow==9.2.0
+scikit-image==0.19.3
+scipy==1.9.0
+SQLAlchemy==1.4.40
+XlsxWriter==3.0.3

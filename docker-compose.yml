@@ -1,0 +1,8 @@
+version: '3.7'
+services:
+  iqa_brisque:
+    build: ./IQA Tool BRISQUE Final
+    container_name: iqa_brisque_final
+    restart: always
+    ports:
+      - '82:8282'

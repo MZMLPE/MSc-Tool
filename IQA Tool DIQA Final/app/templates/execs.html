@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="h3 mb-2 text-gray-800">Results</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Pasta</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for execution in executions%}
+                        <tr>
+                            <td>{{execution.folder}}</td>
+                            <td>{{execution.date}}</td>
+                            <td>
+                                {% if execution.progress == 100 %}
+                                Done
+                                {% elif execution.progress == 0 %}
+                                Fail
+                                {% elif execution.progress == 50 %}
+                                In progress
+                                {% else %}
+                                In queue
+                                {% endif %}
+                            </td>
+                            <td>
+                                {% if execution.progress == 100 %}
+                                    <a href="/download/{{execution.result_filename}}" class="btn btn-primary btn-sm btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            Download <i class="fas fa-download"></i>
+                                        </span>
+                                    </a>
+                                    {% endif %}
+                                    
+                                {% if usuario.admin %}
+                                    <a href="/delete_exec/{{execution.id}}" class="btn btn-danger btn-sm btn-icon-split">
+                                        <span class="icon text-white-50">
+                                            Delete <i class="fas fa-trash"></i>
+                                        </span>
+                                    </a>
+                                {% endif %}                              
+                            </td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

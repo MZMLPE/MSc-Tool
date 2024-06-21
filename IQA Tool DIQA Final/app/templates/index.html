@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Page Heading -->
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h1 class="h3 mb-0 text-gray-800">Hello, {{ usuario.name }}</h1>
+</div>
+
+<div class="row">
+    <div class="col-lg-8 align-self-end">
+        <h1 class="font-weight-bold">Image Quality Assessment</h1>
+        <hr class="divider" />
+    </div>
+    <div class="col-lg-8 align-self-baseline">
+        <p class="mb-5">
+            Welcome to Motorola's Image Quality Assessment (IQA) application. Testers can star new executions (New) or check previous executions (Results) through the left menu (Executions). If you click on your user on the up right side of this screen, you can edit your personal information. For more information, you can contact the research team through e-mail.
+        </p>
+    </div>
+</div>
+{% endblock %}

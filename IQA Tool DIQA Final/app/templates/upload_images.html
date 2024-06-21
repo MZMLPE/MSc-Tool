@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1 class="h3 mb-2 text-gray-800">Upload</h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <form class="config" method="POST" action="/upload_images" enctype="multipart/form-data">
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="inputGroupFileAddon01">Upload image</span>
+                            </div>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01"
+                                    aria-describedby="inputGroupFileAddon01" name="file">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="button btn btn-primary btn-sm btn-icon-split" style="align-items: center;">
+                        <span class="icon text-white-50">
+                            Add <i class="fas fa-plus"></i>
+                        </span>
+                    </button>
+                </a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <h1 class="h3 mb-2 text-gray-800">Folders <span style="font-size: 10px">Total: {{ total }}GB, Used: {{ used }}% </span></h1>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable">
+                        <thead>
+                        </thead>
+                        <tbody>
+                            {%for folder in folders %}
+                                <tr>
+                                    <td>{{folder}}</td>
+                                    <td style="border:none">
+                                        {% if usuario.admin %}
+                                            <a href="/delete_folder/{{folder}}" class="btn btn-danger btn-sm btn-icon-split">
+                                                <span class="icon text-white-50">
+                                                    Delete <i class="fas fa-trash"></i>
+                                                </span>
+                                            </a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {%endfor%}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Content Row -->
+{% endblock %}

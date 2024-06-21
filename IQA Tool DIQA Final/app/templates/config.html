@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Configurações</h1>
+<!-- Content Row -->
+<form class="config" method="POST" action="/upload" enctype="multipart/form-data">
+    <div class="form-group row">
+        <div class="col-sm-6">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Update IQA
+                        model</span>
+                </div>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="inputGroupFile01"
+                        aria-describedby="inputGroupFileAddon01" name="file">
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+        </div>
+        <button class="button btn btn-primary btn-sm btn-icon-split" style="align-items: center;">
+            <span class="icon text-white-50">
+                Add <i class="fas fa-plus"></i>
+            </span>
+        </button>
+    </a>
+    </div>
+</form>
+
+<!-- Content Row -->
+{% endblock %}

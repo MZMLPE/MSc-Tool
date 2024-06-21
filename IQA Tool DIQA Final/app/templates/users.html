@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1 class="h3 mb-2 text-gray-800">Users</h1>
+<div class="d-flex flex-row-reverse">
+    <div class="p-2 bd-highlight">
+        <a href="signup" class="btn btn-dark btn-sm btn-icon-split -align-left">
+        <span class="icon text-black">
+            Create <i class="fas fa-user-plus"></i>
+        </span>
+        </a>
+    </div>
+</div>
+
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>E-mail</th>
+                        <th>Name</th>
+                        <th>is Admin?</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {%for u in users%}
+                        <tr>
+                            <td>{{u.id}}</td>
+                            <td>{{u.email}}</td>
+                            <td>{{u.name}}</td>
+                            <td>
+                                {% if u.admin == True %}
+                                Yes
+                                {% else %}
+                                No
+                                {% endif %}
+                            </td>
+                            <td>
+                                <a href="/user_edit/{{ u.id }}" class="btn btn-primary btn-sm btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        Edit <i class="fas fa-user-edit"></i>
+                                    </span>
+                                </a>
+                                <a href="/user_delete/{{ u.id }}" class="btn btn-danger btn-sm btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        Delete <i class="fas fa-trash"></i>
+                                    </span>
+                                </a>
+                            </td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
