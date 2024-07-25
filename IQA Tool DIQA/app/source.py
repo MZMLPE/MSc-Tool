@@ -180,7 +180,7 @@ def main_source(folder_path, workbook, tab_name):
     worksheet = workbook.add_worksheet('{}'.format(tab_name))
     index = 0
     worksheet.write(index, 0, 'Image')
-    worksheet.write(index, 1, 'Score')
+    worksheet.write(index, 2, 'Score')
     index += 1
     w0, w1, w2 = write_results(worksheet, result, index, format_default, folder_name)
     auto_fit(worksheet, w0, w1, w2)
